@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="imagem/png" href="img/logo_meta_vetor.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/anim.css">
+  <link rel="stylesheet" href="css/analise.css">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+  <title>CPA</title>
+</head>
+<body>
+    <div id="animation_load" class="w-auto h-auto p-3">
+      <div class="gooey">
+        <span class="dot"></span>
+        <div class="dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  <div id="container" class="container-fluid">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+          <a class="navbar-brand" href="/">CPA 2019</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="http://meta.edu.br">FACULDADE <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/lista">LISTA</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+    <div class="flex-row">
+      <div class="col my-4 p-0">
+        <div class="row">
+          <div class="col">
+              <div class="btn-group  w-50" role="group" aria-label="Button group with nested dropdown"> 
+                <div class="btn-group" role="group">
+                  <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Pesquisar por
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                    <a class="dropdown-item" onclick="pNome()" href="#">Nome</a>
+                    <a class="dropdown-item" onclick="pTurma()" href="#">Turma</a>
+                    <a class="dropdown-item" onclick="pMat()" href="#">Matrícula</a>
+                  </div>
+                </div>
+                <input id="pesquisa" onkeyup="pesquisar(0)" class="form-control mr-sm-2" type="search" placeholder="Pesquisar por Nome" aria-label="Pesquisar Nome">
+              </div>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table id="listnome" class="table res table-sm table-striped table-hover my-4" style="background-color: #a3ddff;">
+              <thead>
+                <tr>
+                  <th scope="col">Matrícula</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Turma</th>
+                  <th scope="col">Login</th>
+                  <th scope="col">Formulário</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-main">
+              </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script defer src="/__/firebase/7.2.0/firebase-app.js"></script>
+   <!-- include only the Firebase features as you need -->
+   <script defer src="/__/firebase/7.2.0/firebase-auth.js"></script>
+   <script defer src="/__/firebase/7.2.0/firebase-database.js"></script>
+   <!-- initialize the SDK after all desired features are loaded -->
+   <script defer src="/__/firebase/init.js"></script>
+  <script src="js/relatorio.js"></script>
+  <script>
+    function pMat(){
+      const input = document.getElementById('pesquisa');
+      input.setAttribute('placeholder','Pesquisar por Matrícula');
+      input.setAttribute('aria-label','Pesquisar por Matrícula');
+      input.setAttribute('onkeyup',`pesquisarMat()`);
+    }
+    function pNome(){
+      const input = document.getElementById('pesquisa');
+      input.setAttribute('placeholder','Pesquisar por Nome');
+      input.setAttribute('aria-label','Pesquisar por Nome');
+      input.setAttribute('onkeyup',`pesquisar(${0})`);
+    }
+    function pTurma(){
+      const input = document.getElementById('pesquisa');
+      input.setAttribute('placeholder','Pesquisar por Turma');
+      input.setAttribute('aria-label','Pesquisar por Turma');
+      input.setAttribute('onkeyup',`pesquisar(${1})`);
+    }
+
+    function pesquisar(n){
+    let input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("pesquisa");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("tbody-main");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[n];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }       
+    }
+    }
+
+    function pesquisarMat(){
+      let input, filter, table, tr, th, i, txtValue;
+      input = document.getElementById("pesquisa");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("tbody-main");
+      tr = table.getElementsByTagName("tr");
+      for (i = 0; i < tr.length; i++) {
+        th = tr[i].getElementsByTagName("th")[0];
+        if (th) {
+          txtValue = th.textContent || th.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }       
+      }
+    }
+  </script>
+</body>
+</html>

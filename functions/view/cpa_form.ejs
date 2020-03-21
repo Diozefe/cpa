@@ -1,0 +1,76 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="/">CPA 2019</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="http://meta.edu.br">FACULDADE <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/lista">LISTA</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
+<div class="flex-row">
+<div class="col">
+  <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active carrossel">
+          <img src="img/logo_meta.svg" class="d-block w-100" alt="Logo Faculdade META">
+          <div class="carousel-caption d-md-block text-left">
+              <% let nomeRes = user.Aluno;
+              let modNome = nomeRes.split(" ");
+              let nomeAluno = modNome[0]+" "+modNome[modNome.length-1]
+            %>
+            <h5 class="shadow-text-no-blur color-carrossel">Bem-Vindo <strong><%= nomeAluno%></strong></h5>
+            <p class="shadow-text-no-blur color-carrossel">Não esqueça de responder com sinceridade cada pergunta.</p>
+          </div>
+        </div>
+        <div class="carousel-item carrossel">
+          <img src="img/concluido.svg" class="d-block w-100" alt="IMG CONCLUIDO">
+          <div class="carousel-caption d-md-block text-left">
+            <h5 class="color-carrossel-white shadow-text-no-blur">Terminou?</h5>
+            <p class="color-carrossel-white shadow-text-no-blur">Clique no Botão "Finalizar" abaixo do formulário.</p>
+          </div>
+        </div>
+        <div class="carousel-item carrossel">
+          <img src="img/triste.svg" class="d-block w-100" alt="IMG TRISTE">
+          <div class="carousel-caption d-md-block text-left">
+            <h5 class="color-carrossel-white">Está com dúvidas ainda?</h5>
+            <p class="color-carrossel-white">A equipe do <strong>GTI</strong> está a sua disposição na <strong>Faculdade META.</strong></p>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Anterior</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Próximo</span>
+      </a>
+    </div>
+</div>
+<div id="iframeCol" class="col">
+    <span id="iframeTurma" style="display: none;"><%= turmaIframe%></span>
+</div>
+<div class="col">
+  <div class="div-btn">
+    <button id="btn_fim" class="uk-button uk-button-primary">Finalizar</button>
+  </div>
+</div>
+</div>
+</div>
+<span id="spanMat" style="display: none;"><%= user.matricula;%></span>
+
+<script src="js/form.js"></script>

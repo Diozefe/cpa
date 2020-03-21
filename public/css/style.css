@@ -1,0 +1,197 @@
+*{
+  margin: 0;
+}
+nav{
+  z-index: 10;
+}
+.wc-48{
+  width: 480px!important;
+}
+.carrossel{
+  background-image: linear-gradient(45deg, #007bff, #ffffff00);
+}
+.color-carrossel{
+  color:#0e43a5;
+}
+.color-carrossel-white{
+  color: #ffffff;
+}
+.center{
+  height: 420px;
+  width: 380px;
+  flex-direction: column;
+  display: block;
+}
+.screnn_form{
+  flex-direction: column;
+}
+.left_form,.center_form,.right_form{
+  height: 100%;
+  width: 750px;
+  flex-direction: column;
+}
+.left_form, .right_form{
+  width: 290px;
+}
+.center_form{
+  flex-direction: row;
+}
+.text-shadow-no-blur{
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.37);
+}
+.card-body h1, .card-body h4{
+  color: #4848C5;
+  font-family: 'Arial', sans-serif;
+  font-size: 620%;
+  font-weight: 800;
+  text-shadow:0 5px 8px rgba(23, 23, 59, 0.4);
+  letter-spacing: 0px;
+}
+.card-body h4{
+  font-size: 18px;
+}
+.body-form{
+  width: 100%;
+  height: 280px;
+  padding-top: 50px;
+  background: #EBEBEB;
+  border-radius: 50px 50px 50px 50px;
+}
+.dody-from form, .body-form div{
+  display: block;
+  flex-direction: row;
+}
+.form{
+  margin: 0 50px;
+}
+.form div{
+  padding-bottom: 20px;
+}
+label, input{
+  color: #1E1E87;
+  font-family: 'Calibri', sans-serif;
+  font-size: 25px;
+  width: 82%;
+  font-weight: 600;
+}
+input:focus{
+  outline: none;
+}
+.card input{
+  border: none;
+  height: 45px;
+  border-radius: 20px 20px 20px 20px;
+  padding-left: 50px;
+}
+.card span{
+  display: flex;
+  position: absolute;
+  padding: 8px;
+}
+#label_matricula, #label_cpf{
+  flex-direction: column;
+}
+span svg{
+  width: 35px;
+  height: 35px;
+}
+h2{
+  transition: 0.5s;
+}
+.position-center{
+  margin: 0!important;
+  position: relative;
+  width: 100%;
+  align-items: center;
+  display: flex!important;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.btn{
+  transition: 0.5s;
+  width: 140px;
+  height: 50px;
+  margin-top: 10px;
+  font-family: 'Calibri', sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  border:none;
+  border-radius: 20px 20px 20px 20px;
+  cursor: pointer;
+  user-select: none;
+}
+.btn:focus{
+  outline: none;
+}
+.shadow{
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.363);
+}
+.shadow-hover:hover{
+  transition: 0.5s;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.226);
+}
+.shadow-text{
+  text-shadow: -2px 3px 6px rgba(0, 0, 0, 0.37);
+}
+.shadow-text-hover:hover{
+  transition: 0.5s;
+  cursor: default;
+  text-shadow: -2px 3px 6px rgba(0, 0, 0, 0.37);
+}
+.btn-primary{
+  background: #4285f4;
+  color: #ffffff;
+}
+.div-btn{
+  display: block;
+  z-index: 1;
+}
+
+.left_form svg, .right_form img{
+  width: 280px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.left_form div h1, .right_form div{
+  font-family: 'Calibri', sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  color: #4285f4;
+  letter-spacing: none!important;
+  text-shadow: none;
+  text-align: center;
+}
+.right_form button{
+  margin-top: 40px;
+}
+iframe{
+  margin-top: 20px;
+}
+/* , .btn-primary, .btn-sucess, .btn-warning */
+
+#animation_load{
+  display: block;
+  height: 300px;
+  width: 300px;
+  position: absolute;
+}
+svg{
+  display: block;
+}
+.erro{
+  padding: 0;
+  margin: 0;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: white;
+  border: red solid 2px;
+  color: red;
+  font-size: 11px;
+  font-family: Arial, Black, sans-serif;
+  font-weight: 800;
+  float: right;
+
+}
+
